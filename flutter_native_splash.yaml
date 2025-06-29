@@ -1,0 +1,7 @@
+flutter_native_splash:
+
+  #Background color 
+  color: "#ffffff"
+  #Image to override the white screen
+  image: "assets/LandingPage.png"
+  
