@@ -16,6 +16,10 @@ class SayerApp extends StatelessWidget {
       onGenerateRoute: appRouter.generateRoutes,
       //initial page in the application
       initialRoute: Routes.login,
+      //Design default theme
+      theme: ThemeData(
+        fontFamily: "Montserrat", //default application font
+      ),
     );
   }
 }

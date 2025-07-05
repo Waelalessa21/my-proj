@@ -19,3 +19,16 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+   #read all images inside the images folder.
+   - assets/images/
+
+
+  #read all fonts
+  fonts:
+      #font name that will be used in the app
+    - family: "Montserrat"
+      fonts: 
+        - asset: "assets/fonts/Montserrat-Arabic-Regular.ttf"
+  
