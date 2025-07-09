@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sayer_version2/common/helpers/extensions.dart';
+import 'package:sayer_version2/common/routing/routes.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -42,6 +44,8 @@ class LoginForm extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {
                 //validate user input, then navigate to otp screen.
+                //give the new screen information about widget tree
+                context.pushNamed(Routes.otp);
               },
               style: ElevatedButton.styleFrom(
                 //Button color
@@ -57,7 +61,7 @@ class LoginForm extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: 17,
                 ),
               ),
             ),
