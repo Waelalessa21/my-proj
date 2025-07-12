@@ -11,6 +11,13 @@ dependencies:
     sdk: flutter
   #Enable to override the white screen in app initializtion  
   flutter_native_splash: ^2.4.6  
+  #Provide responsive design 
+  flutter_screenutil: ^5.9.3
+  #For localization [ar-en]
+  flutter_localization: ^0.3.3
+  flutter_localizations:
+    sdk: flutter
+  
 
 dev_dependencies:
   flutter_test:

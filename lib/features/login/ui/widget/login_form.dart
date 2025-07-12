@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sayer_version2/common/helpers/extensions.dart';
-import 'package:sayer_version2/common/routing/routes.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sayer_version2/common/theme/colors.dart';
+import 'package:sayer_version2/common/widgets/app_button.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -17,56 +18,47 @@ class LoginForm extends StatelessWidget {
               prefixIcon: Icon(
                 Icons.mobile_friendly,
                 color: Colors.grey,
-                size: 30,
+                size: 30.sp,
               ),
               //text to be shown on the field
-              hintText: "رقم الجوال",
+              hintText: "البريد الالكتروني",
               hintStyle: TextStyle(color: Colors.grey),
               //when user interact with the field "clicked"
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.r),
               ),
               //when user interact with the field
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.r),
               ),
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: SizedBox(
-            //Fill the width, {0.9, 0.8 of the width}
-            width: double.infinity,
-            height: 60,
-            child: ElevatedButton(
-              onPressed: () {
-                //validate user input, then navigate to otp screen.
-                //give the new screen information about widget tree
-                context.pushNamed(Routes.otp);
-              },
-              style: ElevatedButton.styleFrom(
-                //Button color
-                backgroundColor: Color(0xFF112D4E),
-                //control the shadow
-                elevation: 1,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
+          padding: EdgeInsets.only(right: 30.0.sp),
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              decoration: BoxDecoration(
+                //control the container shape [circle, recetangle, etc.]
+                shape: BoxShape.circle,
+                //shadow.
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.info.withOpacity(0.7),
+                    offset: Offset(0, 0),
+                    spreadRadius: -1,
+                    blurRadius: 14,
+                  ),
+                ],
               ),
-              child: Text(
-                "تأكيد",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 17,
-                ),
-              ),
+              child: Text("زائر؟"),
             ),
           ),
         ),
+        AppButton(title: "تسجيل الدخول"),
       ],
     );
   }
