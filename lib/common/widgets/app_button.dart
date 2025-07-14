@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sayer_version2/common/helpers/extensions.dart';
 import 'package:sayer_version2/common/routing/routes.dart';
 import 'package:sayer_version2/common/theme/colors.dart';
@@ -12,11 +13,11 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(32.0),
+      padding: EdgeInsets.all(16.sp),
       child: SizedBox(
         //Fill the width, {0.9, 0.8 of the width}
-        width: double.infinity,
-        height: 60,
+        width: double.infinity.w,
+        height: 60.h,
         child: ElevatedButton(
           onPressed: () {
             //validate user input, then navigate to otp screen.

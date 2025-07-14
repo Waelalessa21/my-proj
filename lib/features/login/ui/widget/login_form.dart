@@ -21,7 +21,7 @@ class LoginForm extends StatelessWidget {
                 size: 30.sp,
               ),
               //text to be shown on the field
-              hintText: "البريد الالكتروني",
+              hintText: "رقم الجوال",
               hintStyle: TextStyle(color: Colors.grey),
               //when user interact with the field "clicked"
               enabledBorder: OutlineInputBorder(
