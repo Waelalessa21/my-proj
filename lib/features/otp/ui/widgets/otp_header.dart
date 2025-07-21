@@ -4,7 +4,8 @@ import 'package:sayer_version2/common/theme/colors.dart';
 import 'package:sayer_version2/common/theme/spacing.dart';
 
 class OTPHeader extends StatelessWidget {
-  const OTPHeader({super.key});
+  final String phone;
+  const OTPHeader({super.key, required this.phone});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class OTPHeader extends StatelessWidget {
           ),
           SizedBox(height: AppSpacing.spaceBtwItems.h),
           Text(
-            'تم إرسال كود على الرقم (0522892930)',
+            'تم إرسال كود على الرقم ($phone)',
             style: Theme.of(context).textTheme.titleSmall,
             textAlign: TextAlign.center,
           ),

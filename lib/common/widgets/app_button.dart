@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sayer_version2/common/helpers/extensions.dart';
-import 'package:sayer_version2/common/routing/routes.dart';
 import 'package:sayer_version2/common/theme/colors.dart';
 
 class AppButton extends StatelessWidget {
   final String title;
-  //final att to handle different functions.
-  //final datatype name.
-  const AppButton({super.key, required this.title});
+  final VoidCallback onPressed;
+  const AppButton({super.key, required this.title, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +16,7 @@ class AppButton extends StatelessWidget {
         width: double.infinity.w,
         height: 60.h,
         child: ElevatedButton(
-          onPressed: () {
-            //validate user input, then navigate to otp screen.
-            //give the new screen information about widget tree
-
-            context.pushNamed(Routes.otp);
-          },
+          onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             //Button color
             backgroundColor: Color(0xFF112D4E),

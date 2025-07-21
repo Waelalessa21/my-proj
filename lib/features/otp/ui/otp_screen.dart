@@ -9,7 +9,8 @@ import 'package:sayer_version2/features/otp/ui/widgets/otp_header.dart';
 import 'package:sayer_version2/features/otp/ui/widgets/resend_button.dart';
 
 class OtpScreen extends StatelessWidget {
-  const OtpScreen({super.key});
+  final String phone;
+  const OtpScreen({super.key, required this.phone});
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +20,18 @@ class OtpScreen extends StatelessWidget {
         padding: EdgeInsets.all(AppSpacing.defaultSpace.sp),
         child: Column(
           children: [
-            OTPHeader(),
+            OTPHeader(phone: phone),
             SizedBox(height: AppSpacing.spaceBtwItems.h),
             OtpFields(),
             SizedBox(height: AppSpacing.spaceBtwItems.h),
             ResendButton(),
             SizedBox(height: AppSpacing.spaceBtwItems.h),
-            AppButton(title: "تحقق"),
+            AppButton(
+              title: "تحقق",
+              onPressed: () {
+                //push to home.
+              },
+            ),
           ],
         ),
       ),

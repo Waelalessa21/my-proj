@@ -11,7 +11,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => LoginScreen());
 
       case Routes.otp:
-        return MaterialPageRoute(builder: (_) => OtpScreen());
+        final phoneNumber = settings.arguments.toString();
+        return MaterialPageRoute(builder: (_) => OtpScreen(phone: phoneNumber));
 
       //when no correct path is found!
       default:
