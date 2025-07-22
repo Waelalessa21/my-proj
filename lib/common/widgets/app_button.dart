@@ -10,7 +10,7 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.sp),
+      padding: EdgeInsets.all(26.sp),
       child: SizedBox(
         //Fill the width, {0.9, 0.8 of the width}
         width: double.infinity.w,
