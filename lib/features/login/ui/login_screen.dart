@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sayer_version2/common/theme/colors.dart';
+import 'package:sayer_version2/features/login/ui/widget/login_cubit_listener.dart';
 import 'package:sayer_version2/features/login/ui/widget/login_form.dart';
 import 'package:sayer_version2/features/login/ui/widget/login_header.dart';
 import 'package:sayer_version2/features/login/ui/widget/terms_and_conditions.dart';
@@ -28,7 +29,12 @@ class LoginScreen extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(),
               child: Column(
-                children: [LoginHeader(), LoginForm(), TermsAndConditions()],
+                children: [
+                  LoginHeader(),
+                  LoginForm(),
+                  TermsAndConditions(),
+                  LoginCubitListener(),
+                ],
               ),
             ),
           ),

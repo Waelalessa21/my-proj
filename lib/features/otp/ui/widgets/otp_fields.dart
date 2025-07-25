@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:sayer_version2/common/theme/colors.dart';
+import 'package:sayer_version2/features/otp/logic/verify_otp_cubit.dart';
 
 class OtpFields extends StatelessWidget {
-  OtpFields({super.key});
-
-  //keep track ot what user enter inside the field
-  final TextEditingController otpController = TextEditingController();
+  const OtpFields({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final otpController = context.read<VerifyOtpCubit>().otpController;
+
     return SizedBox(
       width:
           MediaQuery.of(context).size.width *
@@ -38,7 +39,8 @@ class OtpFields extends StatelessWidget {
           selectedFillColor: AppColors.middleColor,
         ),
         onCompleted: (value) {
-          //we'll do this later.
+          // Auto-verify when 4 digits are entered
+          context.read<VerifyOtpCubit>().verifyOtpRequest(context);
         },
       ),
     );

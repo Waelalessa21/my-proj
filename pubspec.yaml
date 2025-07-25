@@ -1,6 +1,6 @@
 name: sayer_version2
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -9,9 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  #Enable to override the white screen in app initializtion  
-  flutter_native_splash: ^2.4.6  
-  #Provide responsive design 
+  #Enable to override the white screen in app initializtion
+  flutter_native_splash: ^2.4.6
+  #Provide responsive design
   flutter_screenutil: ^5.9.3
   #For localization [ar-en]
   flutter_localization: ^0.3.3
@@ -20,25 +20,34 @@ dependencies:
   pin_code_fields: ^8.0.1
   animate_do: ^4.2.0
   fluttertoast: ^8.2.12
-  
+  freezed_annotation: ^3.1.0
+  build_runner: ^2.6.0
+  dio: ^5.8.0+1
+  pretty_dio_logger: ^1.4.0
+  retrofit: ^4.6.0
+  json_annotation: ^4.9.0
+  bloc: ^9.0.0
+  flutter_bloc: ^9.1.1
+  get_it: ^8.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  freezed: ^3.2.0
+  json_serializable: ^6.10.0
+  retrofit_generator: ^10.0.0
 
 flutter:
   uses-material-design: true
 
   assets:
-   #read all images inside the images folder.
-   - assets/images/
-
+    #read all images inside the images folder.
+    - assets/images/
 
   #read all fonts
   fonts:
-      #font name that will be used in the app
+    #font name that will be used in the app
     - family: "Montserrat"
-      fonts: 
+      fonts:
         - asset: "assets/fonts/Montserrat-Arabic-Regular.ttf"
-  
