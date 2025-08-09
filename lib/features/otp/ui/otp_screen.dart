@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sayer_version2/common/di/dependency_injection.dart';
 import 'package:sayer_version2/common/theme/spacing.dart';
 import 'package:sayer_version2/common/widgets/app_button.dart';
 import 'package:sayer_version2/common/widgets/white_app_bar.dart';
