@@ -4,15 +4,12 @@ part 'verify_otp_response_model.g.dart';
 
 @JsonSerializable()
 class VerifyOtpResponseModel {
-  final String message;
-  final String token;
-  final String userId;
+  @JsonKey(name: 'access_token')
+  String? accessToken;
+  @JsonKey(name: 'token_type')
+  String? tokenType;
 
-  VerifyOtpResponseModel({
-    required this.message,
-    required this.token,
-    required this.userId,
-  });
+  VerifyOtpResponseModel({this.accessToken, this.tokenType});
 
   factory VerifyOtpResponseModel.fromJson(Map<String, dynamic> json) =>
       _$VerifyOtpResponseModelFromJson(json);

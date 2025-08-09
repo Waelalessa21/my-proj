@@ -21,18 +21,18 @@ class _VerifyOtpService implements VerifyOtpService {
 
   @override
   Future<VerifyOtpResponseModel> verifyOtp(
-    VerifyOtpRequestModel request,
+    VerifyOtpRequestModel otpVerification,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(request.toJson());
+    _data.addAll(otpVerification.toJson());
     final _options = _setStreamType<VerifyOtpResponseModel>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'user/verify-otp',
+            'user/auth',
             queryParameters: queryParameters,
             data: _data,
           )

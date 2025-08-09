@@ -13,8 +13,12 @@ class OtpCubitListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<VerifyOtpCubit, VerifyOtpState>(
       listenWhen:
-          (previous, current) =>
-              current is Loading || current is Success || current is Error,
+          (previous, current) => current.when(
+            initial: () => false,
+            loading: () => true,
+            success: () => true,
+            error: (_) => true,
+          ),
       listener: (context, state) {
         state.when(
           initial: () {},

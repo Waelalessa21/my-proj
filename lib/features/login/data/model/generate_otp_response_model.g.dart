@@ -10,9 +10,9 @@ GenerateOtpResponseModel _$GenerateOtpResponseModelFromJson(
   Map<String, dynamic> json,
 ) => GenerateOtpResponseModel(
   message: json['message'] as String,
-  otpId: json['otpId'] as String?,
+  otpId: json['otp_id'] as String?,
 );
 
 Map<String, dynamic> _$GenerateOtpResponseModelToJson(
   GenerateOtpResponseModel instance,
-) => <String, dynamic>{'message': instance.message, 'otpId': instance.otpId};
+) => <String, dynamic>{'message': instance.message, 'otp_id': instance.otpId};

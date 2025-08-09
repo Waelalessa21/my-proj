@@ -11,35 +11,27 @@ class VerifyOtpCubit extends Cubit<VerifyOtpState> {
   VerifyOtpCubit(this._verifyOtpRepo) : super(const VerifyOtpState.initial());
 
   final TextEditingController otpController = TextEditingController();
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   String phoneNumber = '';
-  String otpId = '';
+  String accessToken = '';
 
-  Future<void> verifyOtpRequest(BuildContext context) async {
-    if (otpController.text.isEmpty || otpController.text.length != 4) {
-      emit(const VerifyOtpState.error("Please enter a valid 4-digit OTP code"));
-      return;
-    }
-
+  Future<void> verifyOtp(String phone) async {
     emit(const VerifyOtpState.loading());
 
-    print(
-      "Verifying OTP for phone: $phoneNumber, OTP: ${otpController.text}, OTP ID: $otpId",
-    );
+    final otpCode = otpController.text;
+
+    print("Verifying OTP: $otpCode for phone: $phone");
 
     final response = await _verifyOtpRepo.verifyOtp(
-      VerifyOtpRequestModel(
-        phoneNumber: phoneNumber,
-        otpCode: otpController.text,
-        otpId: otpId,
-      ),
+      VerifyOtpRequestModel(phone: phone, activeKey: otpCode),
     );
 
     response.when(
       success: (verifyResponse) {
-        print("OTP verified successfully. Token: ${verifyResponse.token}");
-        print("User ID: ${verifyResponse.userId}");
+        print(
+          "OTP verified successfully. Access token: ${verifyResponse.accessToken}",
+        );
+        accessToken = verifyResponse.accessToken ?? '';
         emit(const VerifyOtpState.success());
       },
       failure: (error) {
@@ -47,6 +39,18 @@ class VerifyOtpCubit extends Cubit<VerifyOtpState> {
         emit(VerifyOtpState.error(error));
       },
     );
+  }
+
+  Future<void> verifyOtpRequest(BuildContext context) async {
+    final arguments =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>? ??
+        {};
+    phoneNumber = arguments['phone'] as String? ?? '';
+    await verifyOtp(phoneNumber);
+  }
+
+  void clearOtpFields() {
+    otpController.clear();
   }
 
   @override

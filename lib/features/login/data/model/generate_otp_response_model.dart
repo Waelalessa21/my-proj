@@ -5,6 +5,7 @@ part 'generate_otp_response_model.g.dart';
 @JsonSerializable()
 class GenerateOtpResponseModel {
   final String message;
+  @JsonKey(name: 'otp_id')
   final String? otpId;
 
   GenerateOtpResponseModel({required this.message, required this.otpId});

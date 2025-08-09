@@ -4,6 +4,7 @@ import 'package:sayer_version2/common/di/dependency_injection.dart';
 import 'package:sayer_version2/common/routing/routes.dart';
 import 'package:sayer_version2/features/login/logic/generate_otp_cubit.dart';
 import 'package:sayer_version2/features/login/ui/login_screen.dart';
+import 'package:sayer_version2/features/otp/logic/verify_otp_cubit.dart';
 import 'package:sayer_version2/features/otp/ui/otp_screen.dart';
 
 class AppRouter {
@@ -20,9 +21,13 @@ class AppRouter {
         );
 
       case Routes.otp:
-        final arguments = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
-          builder: (_) => OtpScreen(arguments: arguments),
+          builder:
+              (_) => BlocProvider(
+                create: (_) => getIt<VerifyOtpCubit>(),
+                child: const OtpScreen(),
+              ),
+          settings: settings,
         );
 
       //when no correct path is found!

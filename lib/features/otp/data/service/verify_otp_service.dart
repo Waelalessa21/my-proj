@@ -17,6 +17,6 @@ abstract class VerifyOtpService {
 
   @POST(ApiConstants.verifyOtp)
   Future<VerifyOtpResponseModel> verifyOtp(
-    @Body() VerifyOtpRequestModel request,
+    @Body() VerifyOtpRequestModel otpVerification,
   );
 }
